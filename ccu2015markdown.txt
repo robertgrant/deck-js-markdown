@@ -1,0 +1,145 @@
+t Can interactive data visualisation help us communicate uncertainty?
+a Robert Grant, Kingston &amp; St. George&apos;s
+-
+h Why? 
+o To give an overview
+o To convey scale and complexity
+o To explore the data and comparisons therein
+o To communicate information
+o To tell a story
+o To attract attention and stimulate interest
+p (objectives proposed by <a href="http://eagereyes.org/blog/2012/responses-gelman-unwin-convenient-posting">Gelman &amp; Unwin 2013</a>)
+p Conclusion: one image is not enough
+-
+h Interactive
+u delivered (constructed) in the web browser
+u can click or hover for more info
+u can filter to interesting data
+u can zoom to interesting regions
+w other tricks like transparency and animation are available
+-
+h Example one
+i 400 w stateofobesity.png
+p <a href="http://stateofobesity.org/adult-obesity/">stateofobesity.org/adult-obesity</a>
+-
+h Interactive
+u involve the viewer in finding their own relevant story
+u let them drill down to the level of detail they want
+u can guide them into a complex message
+w prolegomena
+w annotation
+-
+h Example two
+i 400 w budget-forecasts-nyt.png
+p <a href="http://www.nytimes.com/interactive/2010/02/02/us/politics/20100201-budget-porcupine-graphic.html">goo.gl/ykBLke</a>
+-
+h Interactive
+u statisticians and designers encountering one another
+u innovation vs "style over substance", maybe public vs private sector
+u see <a href="http://queue.acm.org/detail.cfm?id=2146416">Heer and Scheiderman's "Interactive Dynamics for Visual Analysis"</a> for a proposed taxonomy
+-
+h Anatomy of webpages
+u HTML file: a recipe that the browser follows
+u CSS for formatting
+u JavaScript for programming (including interactivity)
+u SVG vector graphics
+u you can view the source code for any web page
+-
+h JavaScript libraries
+u <a href="http://d3js.org/">D3</a> is only two years old but dominates the interactive scene
+u attach your data to the webpage and use the values to control the page content (like text or SVG)
+u users can filter, select the data, and the webpage is updated accordingly
+u Nick Qi Zhu's "Data Visualization with D3.js Cookbook" is excellent
+u <a href="http://www.d3noob.org">d3noob.org</a> is a pretty good starting place too
+u <a href="http://leafletjs.com">Leaflet</a> is a popular and lightweight JavaScript library for mapping - much easier to learn than D3!
+u there are other libraries (vis, raphael) but none as flexible as D3
+-
+h A D3 page
+p <a href="simple-d3.html"><img src="simple-d3.png" height="600"></a>
+-
+h Or avoid the JS entirely
+u <a href="https://github.com/ramnathv/rCharts">rCharts</a> will translate R lattice code to HTML+JS (not D3)
+u <a href="https://github.com/ramnathv/rMaps">rMaps</a> or <a href="http://www.robertgrantstats.co.uk/software">R2leaflet / Stata2leaflet</a> likewise for maps
+u I'm also building <a href="http://www.robertgrantstats.co.uk/software">Stata2D3</a>, which uses standard graph commands
+u <a href="http://www.rstudio.com/shiny/">Shiny</a> has limited options and relies on server-side R
+u <a href="http://ggvis.rstudio.com/">ggvis</a> takes ggplot2 code and translates to Shiny
+u <a href="https://developers.google.com/chart/interactive/docs/gallery">Google spreadsheets</a>
+u Excel web app (<a href="https://office.com/start/default.aspx">Office Online</a>)
+u <a href="http://www.tableausoftware.com/">Tableau</a>, <a href="https://www.mapbox.com/">Mapbox</a>
+-
+h Low interactivity
+i 400 w dvhqip_nuffield.png
+p <a href="http://goo.gl/xltEzd">goo.gl/xltEzd</a>
+-
+h Moderate interactivity
+i 400 w dvhqip_crossfilter.png
+p <a href="http://square.github.io/crossfilter">square.github.io/crossfilter
+-
+h Extreme interactivity?
+i 400 w dvhqip_rasmusbaath.png
+p <a href="http://www.sumsar.net/best_online">sumsar.net/best_online</a>
+-
+h Extreme interactivity?
+i 400 w statkey.png
+p <a href="http://lock5stat.com/statkey/index.html">lock5stat.com/statkey</a>
+-
+h Interactive
+u this is all very nice, but depictions of uncertainty are rare
+-
+h Example three
+i 400 w quincunx.png
+p <a href="http://understandinguncertainty.org/quincunx">understandinguncertainty.org/quincunx</a>
+-
+h Example four
+i 400 w jobs-report.png
+p <a href="http://www.nytimes.com/2014/05/02/upshot/how-not-to-be-misled-by-the-jobs-report.html">goo.gl/zKSFrs</a>
+-
+h The challenge
+u can&apos;t assume we can show all CIs, posterior draws or whatever (ink saturation)
+w ...but transparency helps a <em>lot</em>
+u not everyone wants to see every (or even any) CI
+u can&apos;t assume people understand dichotomous things like CIs
+w overlap intervals could help (<a href="http://www.bris.ac.uk/media-library/sites/cmm/migrated/documents/graphical-presentation-of-a-collection-of-means.pdf">Goldstein &amp; Healey 1995</a>)
+w but I like draws from the posterior or sampling distribution best
+w you can propagate different sources of uncertainty
+w and give the option to show CI / convex hull
+-
+h Hurricane Sandy case study
+i 400 w dvhqip_sandy3.jpg
+-
+h Hurricane Sandy case study
+i 400 w dvhqip_sandy4.jpg
+-
+h Hurricane Sandy case study
+i 400 w dvhqip_sandy2.jpg
+-
+h Hurricane Sandy case study
+i 400 w dvhqip_sandy1.jpg
+-
+h Hurricane Sandy case study
+i 400 w sandy-path-evolution.png
+p <a href="http://wap.weather.com/news/weather-hurricanes/sandy-path-evolution-20121026">wap.weather.com/news/weather-hurricanes/sandy-path-evolution-20121026</a>
+-
+h Example five Fisher's irises?
+-
+h Some uncertainty options
+u animate a series of posterior/bootstrap draws
+u show CI / distribution on click or hover
+u highlight significantly different data on click or hover
+u highlight number of posterior draws meeting certain criteria (heading towards a p-value)
+-
+h Considerations: comprehension
+u don&apos;t confuse a collection of data and a collection of posterior draws
+u choose one style and set of tools and stick with it
+u offer an exemplar
+-
+h Considerations: confidentiality
+u interactive visualisation usually means putting the data on the website
+u you could limit access through Flash or just a selection of fixed images
+u but remember graphs with individual data points already publish your data
+-
+h Considerations: future proofing
+u if you rely on proprietary JS or background images like map tiles, they might be gone one day
+u likewise APIs to obtain content from servers
+u the safest approach is to use open-source content, software and JS, and store it locally
+-
